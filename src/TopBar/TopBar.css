@@ -1,12 +1,3 @@
-.topbar__left > h2 {
-  color: #8c00ff;
-  letter-spacing: 1px;
-}
-
-.topbar__left > h2 > span {
-  color: #ff00d4;
-}
-
 .topbar {
   padding: 10px 26px;
   display: flex;
@@ -28,6 +19,10 @@
   justify-content: space-between;
 }
 
+.topbar__left > img {
+  width: 100px;
+}
+
 .topbar__right {
   flex: 1;
   justify-content: flex-end;
@@ -39,4 +34,14 @@
 
 .topbar__right > h4 {
   margin: 0 6px;
+}
+
+@media (max-width: 425px) {
+  .topbar {
+    padding: 10px 6px;
+  }
+  .topbar__left_rt,
+  .Notification {
+    display: none;
+  }
 }

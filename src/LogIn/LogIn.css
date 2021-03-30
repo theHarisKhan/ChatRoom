@@ -5,14 +5,23 @@
 }
 
 .LogIn__Block {
-  padding: 14rem 0;
+  padding: 10rem 0;
+}
+
+.LogIn__Block_div > h1 {
+  margin: 20px 0;
 }
 
 .LogIn__Block_div > button {
   padding: 10px 36px;
-  margin-top: 50px;
   font-size: 26px;
   text-transform: inherit !important;
-  background-color: #0a8d48 !important;
+  background-color: #0051e9 !important;
   color: white;
+}
+
+@media (max-width: 425px) {
+  .LogIn__Block {
+    padding: 6rem 0;
+  }
 }

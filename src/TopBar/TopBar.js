@@ -3,6 +3,7 @@ import { ArrowDropDown, FilterList, Notifications } from '@material-ui/icons'
 import React from 'react'
 import { useStateValue } from '../Redux/StateProvider'
 import './TopBar.css'
+import Logo from './ChatRoom.png'
 
 function TopBar() {
     const [{ user }, dispatch] = useStateValue()
@@ -10,7 +11,7 @@ function TopBar() {
     return (
         <div className="topbar">
             <div className="topbar__left">
-                <h2>Chat<span>Room</span></h2>
+                <img src={Logo} alt="chatroom logo"/>
                 <div className="topbar__left_rt">
                     <IconButton>
                         <FilterList />
@@ -19,7 +20,7 @@ function TopBar() {
                 </div>
             </div>
             <div className="topbar__right">
-                <IconButton>
+                <IconButton className="Notification">
                     <Notifications />
                 </IconButton>
 

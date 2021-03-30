@@ -4,6 +4,7 @@ import { auth, provider } from '../firebase'
 import { useStateValue } from '../Redux/StateProvider'
 import { actionTypes } from '../Redux/reducer'
 import './LogIn.css'
+import Logo from './ChatRoom.png'
 
 function LogIn() {
     const [{}, dispatch] = useStateValue()
@@ -22,6 +23,7 @@ function LogIn() {
     return (
         <div className="LogIn__Block">
             <div className="LogIn__Block_div">
+            <img src={Logo} alt=""/>
             <h1>Join us Now</h1>
             <Button onClick={SignIn}>
                 Sign In

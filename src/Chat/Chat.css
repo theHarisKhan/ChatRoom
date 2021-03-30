@@ -102,3 +102,17 @@
   transform: rotate(-40deg);
   cursor: pointer;
 }
+
+@media (max-width: 425px) {
+  .chat__header_right {
+    display: none;
+  }
+
+  .chat__header_left {
+    padding-left: 26px;
+  }
+
+  .chat__header_left_div > p {
+    width: 90%;
+  }
+}
