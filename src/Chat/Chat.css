@@ -1,0 +1,104 @@
+.chat {
+  flex: 1;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat__header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.chat__header .MuiAvatar-root {
+  width: 55px;
+  height: 55px;
+}
+
+.chat__header_left {
+  display: flex;
+  align-items: center;
+}
+
+.chat__header_left > .chat__header_left_div {
+  margin-left: 10px;
+}
+
+.chat__body {
+  background: rgba(236, 236, 236, 0.933);
+  flex: 1;
+  padding: 30px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.chat__Msg {
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.chat__Reciever {
+  margin-left: auto;
+  background-color: #4545a5;
+  color: #fff;
+}
+
+.chat__Reciever > .chat__name {
+  color: rgb(0, 0, 0);
+}
+
+.chat__name {
+  position: absolute;
+  top: -15px;
+  font-weight: 800;
+  font-size: xx-small;
+}
+
+.chat__timestamp {
+  margin-left: 10px;
+  font-size: xx-small;
+}
+
+.chat__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 16px;
+  height: 62px;
+  border-top: 1px solid lightgray;
+}
+
+.chat__footer > form {
+  flex: 1;
+  display: flex;
+  margin-left: 6px;
+}
+
+.chat__footer > form > input {
+  flex: 1;
+  border: none;
+  outline-width: 0;
+}
+
+.Msg__Submit-Btn {
+  background-color: #ff7655;
+  color: white;
+  padding: 6px;
+  border: none;
+  outline-width: 0;
+  border-radius: 999px;
+
+  transform: rotate(-40deg);
+  cursor: pointer;
+}

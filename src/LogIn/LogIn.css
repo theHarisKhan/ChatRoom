@@ -1,0 +1,18 @@
+.LogIn__Block,
+.LogIn__Block_div {
+  display: grid;
+  place-items: center;
+}
+
+.LogIn__Block {
+  padding: 14rem 0;
+}
+
+.LogIn__Block_div > button {
+  padding: 10px 36px;
+  margin-top: 50px;
+  font-size: 26px;
+  text-transform: inherit !important;
+  background-color: #0a8d48 !important;
+  color: white;
+}
