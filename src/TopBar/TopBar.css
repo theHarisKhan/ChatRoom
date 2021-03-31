@@ -41,7 +41,7 @@
     padding: 10px 6px;
   }
   .topbar__left_rt,
-  .Notification {
+  .topbar__right button.MuiButtonBase-root.MuiIconButton-root.Notification {
     display: none;
   }
 }
