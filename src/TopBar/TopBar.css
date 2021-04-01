@@ -36,7 +36,11 @@
   margin: 0 6px;
 }
 
-@media (max-width: 425px) {
+#simple-menu {
+  margin-top: 40px;
+}
+
+@media (max-width: 540px) {
   .topbar {
     padding: 10px 6px;
   }

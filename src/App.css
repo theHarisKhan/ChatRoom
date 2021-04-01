@@ -10,3 +10,55 @@
   height: 90vh;
   overflow: hidden;
 }
+
+/* Welcome Component Styling */
+
+.Welcome {
+  flex: 1;
+}
+
+.Welcome,
+.welcome__div {
+  display: grid;
+  place-items: center;
+
+  text-align: center;
+}
+
+.welcome__div > h1 {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.welcome__div > .MuiSvgIcon-root {
+  font-size: 46px;
+
+  animation: moveleft 1s 1s infinite alternate;
+}
+
+.welcome__div > .creator {
+  margin-top: 33px;
+}
+
+.welcome__div > .creator > h4 > a {
+  color: #3737ff;
+}
+
+@keyframes moveleft {
+  0% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 540px) {
+  .app__body {
+    height: 85vh;
+  }
+
+  .welcome__div > h1 {
+    width: 100%;
+  }
+}

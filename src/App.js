@@ -5,6 +5,7 @@ import TopBar from './TopBar/TopBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LogIn from './LogIn/LogIn';
 import { useStateValue } from './Redux/StateProvider';
+import Welcome from './Welcome';
 
 function App() {
  const [{ user }, dispatch] = useStateValue()
@@ -25,7 +26,7 @@ function App() {
                 <Chat />
               </Route>
               <Route path="/">
-                <Chat />
+                <Welcome />
               </Route>
             </Switch>
           </Router>

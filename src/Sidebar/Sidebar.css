@@ -90,7 +90,7 @@ a {
   color: black;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 540px) {
   .sidebar {
     position: absolute;
     background-color: white;
@@ -112,7 +112,7 @@ a {
     height: 45px;
     width: 45px;
     border-radius: 99px;
-    left: 10px;
+    left: -10px;
     z-index: 2;
     cursor: pointer;
   }

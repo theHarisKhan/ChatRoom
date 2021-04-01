@@ -103,7 +103,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 540px) {
   .chat__header_right {
     display: none;
   }

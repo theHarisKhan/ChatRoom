@@ -1,4 +1,4 @@
-import { MenuOpen, Search } from '@material-ui/icons'
+import { Menu, MenuOpen, Search } from '@material-ui/icons'
 import React, { useEffect, useState } from 'react'
 import db from '../firebase'
 import './Sidebar.css'
@@ -18,11 +18,12 @@ function Sidebar() {
     },[])
 
     const handleClick = () => setClick(!click)
+    const CloseMenu = () => setClick(false)
 
     return (
         <>
         <div className="toggle__btn" onClick={handleClick}>
-            <MenuOpen />
+            { click ? <MenuOpen /> : <Menu /> }
         </div>
         <div className={click ? `sidebar active__toggle` : `sidebar`}>
             <div className="sidebar__Search">
@@ -36,6 +37,7 @@ function Sidebar() {
                         key={room.id}
                         id={room.id}
                         title={room.data.name}
+                        ClickAct={CloseMenu}
                     />
                 ))}
             </div>

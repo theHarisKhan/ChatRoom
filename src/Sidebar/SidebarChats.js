@@ -9,7 +9,8 @@ function SidebarChats({
     timestamp,
     id,
     activeChat, 
-    addNewChat
+    addNewChat,
+    ClickAct,
 }) {
 
     const [seed, setSeed] = useState()
@@ -48,7 +49,7 @@ function SidebarChats({
     return (
         <>
         {!addNewChat ? (
-            <Link to={`/rooms/${id}`}>
+            <Link to={`/rooms/${id}`} onClick={ClickAct}>
                 <div className="sidebar__Chats">
                     {activeChat && <div className="active__bar"></div>}
                     <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
