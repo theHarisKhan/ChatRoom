@@ -2,20 +2,22 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import { auth, provider } from '../firebase'
 import { useStateValue } from '../Redux/StateProvider'
-import { actionTypes } from '../Redux/reducer'
 import './LogIn.css'
 import Logo from './ChatRoom.png'
+import { useHistory } from 'react-router-dom'
 
 function LogIn() {
+    const history = useHistory()
     const [{}, dispatch] = useStateValue()
 
     const SignIn = () => {
         auth.signInWithPopup(provider)
             .then((result) => {
                 dispatch({
-                    type: actionTypes.SET_USER,
+                    type: 'SET_USER',
                     user: result.user,
                 })
+                history.push("/welcome")
             })
             .catch((error) => alert(error.message))
     }

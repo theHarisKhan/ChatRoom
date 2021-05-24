@@ -37,30 +37,38 @@ function Chat() {
     const sendMessage = (e) => {
         e.preventDefault()
 
-        const UploadTask = storage.ref(`images/${image?.name}`).put(image)
-        UploadTask.on(
-            "state_changed",
-            snapshot => {},
-            error => {
-                console.log(error)
-            },
-            () => {
-                storage
-                    .ref("images")
-                    .child(image?.name)
-                    .getDownloadURL()
-                    .then(url => {
-                        console.log(url)
-                        setImage(null)
-                        db.collection('rooms').doc(roomId).collection('messages').add({
-                            message: input,
-                            image: url,
-                            name: user.displayName,
-                            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                        })
-                    })
-            }
-        )
+        if(image){
+            const UploadTask = storage.ref(`images/${image?.name}`).put(image)
+                UploadTask.on(
+                    "state_changed",
+                    snapshot => {},
+                    error => {
+                        console.log(error)
+                    },
+                    () => {
+                        storage
+                            .ref("images")
+                            .child(image?.name)
+                            .getDownloadURL()
+                            .then(url => {
+                                console.log(url)
+                                setImage(null)
+                                db.collection('rooms').doc(roomId).collection('messages').add({
+                                    message: input,
+                                    image: url,
+                                    name: user.displayName,
+                                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                                })
+                            })
+                    }
+                )
+        } else {
+            db.collection('rooms').doc(roomId).collection('messages').add({
+                message: input,
+                name: user.displayName,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+        }
         setInput("")
     }
 

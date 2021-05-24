@@ -5,9 +5,10 @@ import { useStateValue } from '../Redux/StateProvider'
 import './TopBar.css'
 import Logo from './ChatRoom.png'
 import firebase from 'firebase'
-import { actionTypes } from '../Redux/reducer'
+import { useHistory } from 'react-router-dom'
 
 function TopBar() {
+    const history = useHistory()
     const [{ user }, dispatch] = useStateValue()
 
     const [anchorEl, setAnchorEl] = useState(null)
@@ -23,9 +24,10 @@ function TopBar() {
     const SignOut = () => {
         firebase.auth().signOut().then((result) => {
             dispatch({
-                type: actionTypes.SET_USER,
+                type: 'SET_USER',
                 user: null,
             })
+            history.push("/")
         })
         .catch((error) => alert(error.message))
     }

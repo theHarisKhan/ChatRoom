@@ -6,33 +6,55 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LogIn from './LogIn/LogIn';
 import { useStateValue } from './Redux/StateProvider';
 import Welcome from './Welcome';
+import { useEffect } from 'react';
+import { auth } from './firebase'
 
 function App() {
  const [{ user }, dispatch] = useStateValue()
 
+ useEffect(() => {
+   auth.onAuthStateChanged(authUser => {
+
+    if(authUser){
+      dispatch({
+        type: 'SET_USER',
+        user: authUser,
+      })
+    } else {
+      dispatch({
+        type: 'SET_USER',
+        user: null,
+      })
+    }
+   })
+ },[])
+
   return (
     <div className="App">
-      {!user ? (
-        <LogIn />
-      ) : (
-        <>
-        <TopBar />
-        <div className="app__body"> 
-          <Router>
+      <Router>
+        <Switch>
+          {!user ? (
+            <Route path="/">
+              <LogIn />
+            </Route>
+            ) : (
+            <>
+            <TopBar />
+            <div className="app__body"> 
               <Sidebar />
 
-            <Switch>
+            
               <Route path="/rooms/:roomId">
                 <Chat />
               </Route>
-              <Route path="/">
+              <Route path="/welcome">
                 <Welcome />
               </Route>
-            </Switch>
-          </Router>
-        </div>
-        </>
-      )}
+            </div>
+            </>
+          )}
+        </Switch>
+      </Router>
     </div>
   );
 }
