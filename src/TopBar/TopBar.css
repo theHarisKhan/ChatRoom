@@ -42,7 +42,10 @@
 
 @media (max-width: 540px) {
   .topbar {
-    padding: 10px 6px;
+    padding: 5px 6px;
+  }
+  .topbar__left > img {
+    width: 70px;
   }
   .topbar__left_rt,
   .topbar__right button.MuiButtonBase-root.MuiIconButton-root.Notification {
