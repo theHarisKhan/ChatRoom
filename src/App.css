@@ -1,17 +1,8 @@
-/* .App {
-  display: grid;
-  place-items: center;
-  padding: 1rem 0 2rem;
-  background-color: #2cd8c5;
-} */
-
 .app__body {
   display: flex;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 }
-
-/* Welcome Component Styling */
 
 .Welcome {
   flex: 1;
@@ -54,10 +45,6 @@
 }
 
 @media (max-width: 540px) {
-  .app__body {
-    height: 85vh;
-  }
-
   .welcome__div > h1 {
     width: 100%;
   }

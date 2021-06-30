@@ -1,38 +1,21 @@
 .topbar {
-  padding: 10px 26px;
+  padding: 10px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.397); */
 }
 
-.topbar__left,
-.topbar__right,
-.topbar__left_rt {
+.topbar__box,
+.topbar__box-left {
   display: flex;
   align-items: center;
 }
 
-.topbar__left {
-  flex: 0.36;
-  justify-content: space-between;
-}
-
-.topbar__left > img {
-  width: 100px;
-}
-
-.topbar__right {
-  flex: 1;
-  justify-content: flex-end;
-}
-
-.topbar__right > .MuiIconButton-root:nth-child(1) {
+.topbar__box > .MuiIconButton-root:nth-child(1) {
   margin-right: 16px;
 }
 
-.topbar__right > h4 {
+.topbar__box-left > h4 {
   margin: 0 6px;
 }
 
@@ -44,11 +27,7 @@
   .topbar {
     padding: 5px 6px;
   }
-  .topbar__left > img {
-    width: 70px;
-  }
-  .topbar__left_rt,
-  .topbar__right button.MuiButtonBase-root.MuiIconButton-root.Notification {
+  .topbar__box button.MuiButtonBase-root.MuiIconButton-root.Notification {
     display: none;
   }
 }

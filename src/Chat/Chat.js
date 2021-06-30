@@ -1,5 +1,5 @@
-import { Avatar, IconButton } from '@material-ui/core'
-import { AccessTime, MoreVert, Send, Star } from '@material-ui/icons'
+import { Avatar, IconButton, Menu, MenuItem } from '@material-ui/core'
+import { AccessTime, MoreVert, Send, Star, ExitToApp } from '@material-ui/icons'
 import ImageIcon from '@material-ui/icons/Image';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
@@ -8,14 +8,36 @@ import db from '../firebase'
 import { storage } from '../firebase'
 import { useStateValue } from '../Redux/StateProvider'
 import './Chat.css'
+import { useHistory } from 'react-router-dom';
 
 function Chat() { 
+    const history = useHistory()
     const [input, setInput] = useState("")
     const [roomName, setRoomName] = useState("")
     const [messages, setMessages] = useState([])
     const [image, setImage] = useState(null)
     const [{ user }, dispatch] = useStateValue()
+    const [anchorEl, setAnchorEl] = useState(null)
     const { roomId } = useParams()
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget)
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
+    const SignOut = () => {
+        firebase.auth().signOut().then((result) => {
+            dispatch({
+                type: 'SET_USER',
+                user: null,
+            })
+            history.push("/")
+        })
+        .catch((error) => alert(error.message))
+    }
 
     useEffect(() => {
         if (roomId){
@@ -94,9 +116,20 @@ function Chat() {
                     <IconButton>
                         <AccessTime/>
                     </IconButton>
-                    <IconButton>
+                    <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                         <MoreVert/>
                     </IconButton>
+                    <Menu 
+                        id="simple-menu" 
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={SignOut}>
+                            <ExitToApp />{' '}Exit App
+                        </MenuItem>
+                    </Menu>
                 </div>
             </div>
 

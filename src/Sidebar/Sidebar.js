@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import db from '../firebase'
 import './Sidebar.css'
 import SidebarChats from './SidebarChats'
+import TopBar from '../TopBar/TopBar'
 
 function Sidebar() {
     const [rooms, setRooms] = useState([])
@@ -26,6 +27,7 @@ function Sidebar() {
             { click ? <MenuOpen /> : <Menu /> }
         </div>
         <div className={click ? `sidebar active__toggle` : `sidebar`}>
+            <TopBar />
             <div className="sidebar__Search">
                 <Search />
                 <input type="text" placeholder="Search"/>

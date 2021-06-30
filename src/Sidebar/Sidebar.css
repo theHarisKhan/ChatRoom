@@ -95,9 +95,9 @@ a {
     position: absolute;
     background-color: white;
     height: 100%;
-    z-index: 1;
-
     left: -140%;
+    z-index: 1;
+    border-right: 7px solid #008080;
     transition: 350ms all;
   }
 
@@ -111,6 +111,7 @@ a {
     background-color: teal;
     height: 45px;
     width: 45px;
+    top: 52px;
     border-radius: 99px;
     left: -10px;
     z-index: 2;

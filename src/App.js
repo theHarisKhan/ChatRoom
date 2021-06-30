@@ -1,7 +1,6 @@
 import './App.css';
 import Sidebar from './Sidebar/Sidebar';
 import Chat from './Chat/Chat'
-import TopBar from './TopBar/TopBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LogIn from './LogIn/LogIn';
 import { useStateValue } from './Redux/StateProvider';
@@ -38,9 +37,7 @@ function App() {
               <LogIn />
             </Route>
             ) : (
-            <>
-            <TopBar />
-            <div className="app__body"> 
+            <div className="app__body">
               <Sidebar />
 
             
@@ -51,7 +48,6 @@ function App() {
                 <Welcome />
               </Route>
             </div>
-            </>
           )}
         </Switch>
       </Router>
